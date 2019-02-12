@@ -1,0 +1,50 @@
+Short Answer:
+1. Searching for an item on a grocery list would be an everyday example of a linear search because the list is unorganized as items are added to the end as needed so the only option is to look over each item when trying to see if something is on the list.
+2. Searching for a word in a dictionary is an everyday example of a binary search because the words are organized alphabetically and can be narrowed down in a binary fashion.
+3. Seven iterations
+4. Three iterations
+5. Since the items are unsorted a linear search would have to be used since binary searches rely on a sorted collection.
+6. For a sorted collection a binary search would be more effective since it would likely find the item in less iterations.
+Programming Assignment:
+1.
+function dictionarySearch(collection, word){
+ var low = 0;
+ var high = collection.length - 1;
+  
+ while (low <= high){
+   var mid = Math.round((low + high) / 2);
+
+   if(collection[0] == word){
+     return collection[0];
+   }
+   else if (collection[mid] > word){
+     high = mid;
+   }
+   else if (collection[mid] < word){
+     low = mid;
+   }
+   else {
+     return collection[mid]
+   }
+ }
+  return 'NOT FOUND';
+}
+ 
+var collection = ['acid', 'albatros', 'cat', 'dog', 'zebra'];
+console.log(dictionarySearch(collection, 'albatros'));
+
+2.
+function netFish(fish, desiredFish){
+ var result = null, value;
+  for ( var i = 0; i < fish.length; i++){
+    value = fish[i];
+    if(value === desiredFish){
+      result = fish[i];
+      break;
+    }
+  }
+  return result;
+}
+ 
+var fishInTank = ['neon tetra', 'guppy', 'angel fish', 'white-spotted goldfish', 'minnow'];
+console.log(netFish(fishInTank, 'white-spotted goldfish'));
